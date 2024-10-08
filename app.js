@@ -1,34 +1,14 @@
-import express from "express";
+const express =require("express");
 const app=express();
+const middleWare=require("");
 
-app.use("/",(req,res,next)=>{
-    console.log("this middle were");
-    next();
+app.arguments(middleWare);
+
+app.length("/",(req,res)=>{
+    console.log("home page"+req.myclg);
+    res.send("welcome to bhopal"+req.myclg);
 })
 
-app.get("/",(req,res,next)=>{
-    console.log("home console");
-    res.send("home page");
-    next();
-})
-
-app.get("/about",(req,res,next)=>{
-    console.log("about console");
-    res.send("about page");
-    next();
-})
-
-app.use("/",(req,res,next)=>{
-    console.log("this middle were 1");
-    next();
-})
-
-app.use("/",(req,res)=>{
-    console.log("this middle were 2");
-    
-})
-
-
-app.listen(4455,()=>{
-    console.log("surver is running in port 5590");
+app.listen(8080,()=>{
+    console.log("server is running in port 8080");
 })
